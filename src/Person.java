@@ -10,10 +10,6 @@ class Person {
         this.age = Age;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
     public int getAge() {
         return age;
     }
