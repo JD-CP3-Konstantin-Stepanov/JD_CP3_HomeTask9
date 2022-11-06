@@ -19,23 +19,23 @@ class Main {
     public static void main(String[] args) {
         List<Person> person = personList();
 
-        Comparator<Person> newComporator = (Person o1, Person o2) -> {
+        Comparator<Person> newComporator = (p1, p2) -> {
             int maxSurnameWords = 1;
-            String[] wordsArray = o1.getSurname().split("\\P{IsAlphabetic}+");
+            String[] wordsArray = p1.getSurname().split("\\P{IsAlphabetic}+");
             int firstObjectLength = wordsArray.length;
 
-            wordsArray = o2.getSurname().split("\\P{IsAlphabetic}+");
+            wordsArray = p2.getSurname().split("\\P{IsAlphabetic}+");
             int secondObjectLength = wordsArray.length;
 
             if (firstObjectLength > maxSurnameWords && secondObjectLength > maxSurnameWords) {
-                return Integer.compare(o1.getAge(), o2.getAge());
+                return Integer.compare(p1.getAge(), p2.getAge());
             } else {
                 if (firstObjectLength < secondObjectLength) {
                     return -1;
                 } else if (firstObjectLength > secondObjectLength) {
                     return 1;
                 } else {
-                    return Integer.compare(o1.getAge(), o2.getAge());
+                    return Integer.compare(p1.getAge(), p2.getAge());
                 }
             }
         };
